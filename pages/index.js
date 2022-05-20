@@ -1,17 +1,17 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
 import SideBar from '../comps/SideBar'
-const Home: NextPage = () => {
+import Feed from '../comps/feed'
+const Home = () => {
   return (
-    <div className="bg-[#000] h-[400px] flex max-w-[1500px] mx-auto min-h-screen">
+    <div className=" ">
       <Head>
         <title>Twitter</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-       <main className="">
+       <main className="bg-black max-w-[1500px] min-h-screen flex mx-auto">
          <SideBar/>
-         {/* Feed */}
+         <Feed/>
          {/* Widgets */}
 
          {/* Modal */}
