@@ -11,9 +11,11 @@ import {
   ClipboardListIcon,
   DotsCircleHorizontalIcon,
 } from '@heroicons/react/outline'
+import {useSession, signOut} from 'next-auth/react'
 
 function SideBar() {
-  return (
+  const {data:session} = useSession();
+    return (
     <div className="fixed hidden h-full flex-col items-center p-2 sm:flex md:w-[340px] md:items-start ">
        <div className='justify-center items-center hoverAnimation p-0 xl:ml-24 mt-1 flex h-14 w-14'>
          <Image src='https://rb.gy/ogau5a' alt="twitter" width={30} height={30}/>
@@ -33,14 +35,14 @@ function SideBar() {
           Tweet
         </button>
 
-        <div className='rounded-full flex mt-auto xl:ml-24 justify-center items-center text-[#d9d9d9] hoverAnimation '>
-            <img src='https://lh3.googleusercontent.com/a/AATXAJwCsuneWAkKlHwMPxOmLNjFACEvbtN8QPwbUsZ-=s96-c' alt='' className=' h-10 w-10 rounded-full inline'/>
+        <div onClick={signOut} className='rounded-full flex mt-auto xl:ml-auto xl:-mr-3 justify-center items-center text-[#d9d9d9] hoverAnimation '>
+            <img src={session.user.image} alt='' className=' h-10 w-10 rounded-full xl:mr-2.5'/>
           <div className='hidden leading-5 xl:inline'>
-            <h4 className='font-bold text-lg'>firebase</h4>
-            <p className='text-[#6e767d]'>@firebase1875</p>
+            <h4 className='font-bold'>{session.user.name}</h4>
+            <p className='text-[#6e767d]'>@{session.user.tag}</p>
           </div>
-        </div>
-        <DotsHorizontalIcon className='h-5 ml-10 hidden xl-inline'/>
+        <DotsHorizontalIcon className='h-5 ml-10 hidden xl:inline'/>
+    </div>
     </div>
   )
 }
