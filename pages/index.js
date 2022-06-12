@@ -3,7 +3,7 @@ import SideBar from '../comps/SideBar'
 import Feed from '../comps/feed'
 import Login from '../comps/Login.js'
 import { getProviders, getSession, useSession } from 'next-auth/react'
-const Home = ({providers}) => {
+const Home = ({providers, trendingResults, followingResults}) => {
 // to however retrieve the session in the frontend
   const {data:session} = useSession();
 

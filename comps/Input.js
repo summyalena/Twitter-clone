@@ -11,11 +11,12 @@ import {
   XIcon,
 } from '@heroicons/react/solid'
 import {db,storage} from "../firebase"
-import { addDoc, collection, doc, serverTimestamp, updateDoc} from "@firebase/firestore";
+import { addDoc, collection, doc, serverTimestamp, updateDoc,} from "@firebase/firestore";
 import {getDownloadURL, ref, uploadString} from "@firebase/storage";
-
+import {signOut, useSession} from 'next-auth/react'
 
 function Input() {
+  const {data:session} = useSession();
   const [input, setInput] = useState('')
   const [loading,setLoading] = useState(false)
   const filePickerRef = useRef(null)
@@ -29,6 +30,10 @@ const sendPost = async() =>{
 
     // we are going to create a document that would let us create a database and collection and save it up
     const docRef = await addDoc(collection(db,"posts"), {
+      id: session.user.uid,
+      username: session.user.name,
+      userImage: session.user.image,
+      tag: session.user.tag,
       text: input,
       timestamp: serverTimestamp(),
     });
@@ -75,9 +80,10 @@ const sendPost = async() =>{
     >
       <img
         className="h-10 w-10 cursor-pointer rounded-full"
-        src="https://lh3.googleusercontent.com/a/AATXAJwCsuneWAkKlHwMPxOmLNjFACEvbtN8QPwbUsZ-=s96-c"
+        src={session.user.image}
         width={20}
         height={20}
+        onClick={signOut}
         alt="facebook"
       />
       <div className=" w-full divide-y-2 divide-gray-700">
