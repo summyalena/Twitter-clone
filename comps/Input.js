@@ -56,6 +56,8 @@ const sendPost = async() =>{
 }
 
   const addImageToPost = (e) => {
+    // so i want to initialize a fileReader that reads my files and if its my first file picked,
+    // it would read it as a data url(link)
     const reader = new FileReader()
      if(e.target.files[0]){
        reader.readAsDataURL(e.target.files[0]);

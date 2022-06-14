@@ -2,11 +2,14 @@ import Head from 'next/head'
 import SideBar from '../comps/SideBar'
 import Feed from '../comps/feed'
 import Login from '../comps/Login.js'
+import Modal from '../comps/modal'
+import { useRecoilState } from 'recoil'
 import { getProviders, getSession, useSession } from 'next-auth/react'
+import { modalState } from '../atoms/modalAtom'
 const Home = ({providers, trendingResults, followingResults}) => {
 // to however retrieve the session in the frontend
   const {data:session} = useSession();
-
+  const [isOpen,setIsOpen] = useRecoilState(modalState)
   // if there is no authentication then it shows the login page first
   if(!session) return <Login providers={providers}/>
 
@@ -22,7 +25,7 @@ const Home = ({providers, trendingResults, followingResults}) => {
          <Feed/> 
          {/* Widgets */}
 
-         {/* Modal */}
+        {isOpen && <Modal/> }
        </main>
       </div>
        )
@@ -30,27 +33,6 @@ const Home = ({providers, trendingResults, followingResults}) => {
 
 export default Home
 
-// export async function getServerSideProps(context){
-    
-//       const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then((res)=>
-//          res.json()
-//       )
-//       const followingResults = await fetch("https://jsonkeeper.com/b/WWMJ").then((res)=>
-//         res.json()
-//       )
-      
-//       const providers = await getProviders()
-//       // const session = await getSession(context)
-
-//       return {
-//         props: {
-//           providers,
-//           // session,
-//           trendingResults,
-//           followingResults
-//         }
-//       }
-// }
 
 export async function getServerSideProps(context){
        const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then((res)=> res.json())

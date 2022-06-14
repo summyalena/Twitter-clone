@@ -6,11 +6,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@headlessui/react": "^1.6.4",
     "@heroicons/react": "^1.0.6",
     "babel-runtime": "^6.26.0",
     "css-loader": "^6.7.1",
     "emoji-mart": "3.0",
     "firebase": "^9.8.2",
+    "moment": "^2.29.3",
     "next": "latest",
     "next-auth": "^4.0.0-beta.7",
     "postcss-loader": "^7.0.0",
