@@ -36,9 +36,6 @@ function modal() {
         timestamp:serverTimestamp(),
        })
 
-    //    if(!comment.trim()){
-
-    //    }
        setIsOpen(false);
        setComment("");
 

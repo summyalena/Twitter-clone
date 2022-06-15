@@ -11,7 +11,7 @@ import {HeartIcon as HeartIconFilled, ChatIcon as ChatIconFilled,} from "@heroic
 import React, { useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import { db } from '../firebase'
-import { doc, onSnapshot, query, collection, setDoc } from 'firebase/firestore'
+import { doc, onSnapshot, query, collection,orderBy, setDoc } from 'firebase/firestore'
 import { useRecoilState } from 'recoil'
 import { modalState } from '../atoms/modalAtom'
 import { useState } from 'react'
@@ -37,7 +37,10 @@ function posts({ post, id, postPage }) {
 useEffect(()=>onSnapshot(collection(db,"posts",id,"likes"),
       (snapshot)=>setLikes(snapshot.docs)),[db,id]);
 
-
+      // this queries the database to create a id under posts "comments" section.
+useEffect(()=>{
+    onSnapshot(query(collection(db,"posts",id,"comments"),orderBy("timestamp","desc")), (snapshot)=>setComments(snapshot.docs))
+},[])
   // In this function I want to get the array of likes and check each like in the array and if this like matches the authenticated session it would return 
   // a true value. This like however becomes authenticated and then the if function comes in.
       useEffect( 
@@ -61,7 +64,7 @@ useEffect(()=>onSnapshot(collection(db,"posts",id,"likes"),
     >
       {!postPage && (
         <img
-          src={post.userImage}
+          src={post?.userImage}
           alt=""
           className="mr-4 h-11 w-11 rounded-full"
         />

@@ -5,6 +5,6 @@
 
 module.exports = {
   images:{
-    domains:["rb.gy"],
+    domains:["rb.gy", "www.itnewsafrica.com"]
   }
 }

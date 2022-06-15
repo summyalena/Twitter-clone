@@ -7,38 +7,52 @@
 @import './base.css';
 @import 'tailwindcss/utilities'; */
 
-
-@layer base{
-    body{
-        @apply bg-black;
-    }
+@layer base {
+  body {
+    @apply bg-black;
+  }
 }
 
 @layer components {
-    .hoverAnimation {
-        @apply hover:bg-[#d9d9d9] 
-        hover:bg-opacity-10 
-        rounded-full
+  .hoverAnimation {
+    @apply h-[52px] 
+        w-[52px] 
         cursor-pointer
-        xl:w-auto
-         w-[52px] h-[52px]
-          xl:py-3 xl:px-4
-          transition 
-          duration-100
-           ease-out 
-           xl:h-auto;
-    }
-    .icon {
-      @apply hover:bg-[#1d9bf0] cursor-pointer transition ease-out w-7 h-7 justify-center items-center hover:bg-opacity-10 flex rounded-full
-    }
-    .btn {
-        @apply w-48 h-48 rounded rotate-[-40deg] bg-[#1d9bf0] absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0
-    }
-    .username {
-      @apply  group-hover:underline text-[15px] sm:text-base  font-bold inline-block text-[#d9d9d9]
-    }
-    .modal {
-        @apply inline-block transform overflow-hidden rounded-2xl bg-black text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl sm:align-middle
-    }
-}
+        rounded-full
+        transition
+         duration-100 ease-out
+          hover:bg-[#d9d9d9] hover:bg-opacity-10
+          xl:h-auto 
+          xl:w-auto
+           xl:py-3 
+           xl:px-4;
+  }
+  .icon {
+    @apply flex h-7 w-7 cursor-pointer items-center justify-center rounded-full transition ease-out hover:bg-[#1d9bf0] hover:bg-opacity-10;
+  }
+  .btn {
+    @apply absolute bottom-0 left-0 mb-9 ml-9 h-48 w-48 -translate-x-full translate-y-full rotate-[-40deg] rounded bg-[#1d9bf0] transition-all duration-500 ease-out group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0;
+  }
+  .username {
+    @apply inline-block text-[15px] font-bold  text-[#d9d9d9] group-hover:underline sm:text-base;
+  }
+  .modal {
+    @apply inline-block transform overflow-hidden rounded-2xl bg-black text-left align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl sm:align-middle;
+  }
+  .trendBtn {
+    @apply hover:bg-opacity-[0.03] transition duration-200 flex w-full hover:text-white hover:text-opacity-[1px] cursor-pointer items-center justify-between rounded-xl px-4 py-3 font-light text-[#1d96f0] ease-out hover:bg-black;
+  }
 
+  animation: slideIn 2s ;
+
+@keyframes slideIn {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+}
