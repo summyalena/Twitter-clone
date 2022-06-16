@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import {signIn} from 'next-auth/react';
-import {useState} from 'react'
+
 // Next authentication allows us to use the signIn feature to authenticate our app, this has been made easy
 function Login({providers}) {
  
@@ -29,10 +29,10 @@ function Login({providers}) {
             </div> 
     ))
     }
-     <button class="relative mt-9 p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
-<span class="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
-<span class="relative px-6 py-3 transition-all ease-out bg-gray-900 rounded-md group-hover:bg-opacity-0 duration-400">
-<span class="relative text-white">Twitter Rebuild by Alena</span>
+     <button className="relative mt-9 p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
+<span className="w-full h-full bg-gradient-to-br from-[#ff8a05] via-[#ff5478] to-[#ff00c6] group-hover:from-[#ff00c6] group-hover:via-[#ff5478] group-hover:to-[#ff8a05] absolute"></span>
+<span className="relative px-6 py-3 transition-all ease-out bg-gray-900 rounded-md group-hover:bg-opacity-0 duration-400">
+<span className="relative text-white">Twitter Rebuild by Alena</span>
 </span>
 </button>
     </div>
