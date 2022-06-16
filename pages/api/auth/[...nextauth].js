@@ -3,6 +3,8 @@ import GoogleProvider from 'next-auth/providers/google'
 
 // this here, we want to add the google authentication tokens here, this helps us access the google next authentication.
 export default NextAuth({
+ //    this would add a secret to my enviornment variables
+    secret: process.env.JWT_SECRET,
     providers: [
         GoogleProvider ({
             clientId: process.env.GOOGLE_CLIENT_ID,
@@ -18,8 +20,6 @@ export default NextAuth({
            return session;
        },
    },
-//    this would add a secret to my enviornment variables
-   secret: process.env.JWT_SECRET,
 })
 // next step after adding googleProvider;
 // after developing an api for this, we now add a useSession in our app so that it is accessible every where.
