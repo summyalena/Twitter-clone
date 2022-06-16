@@ -13,7 +13,7 @@ import Comment from '../comps/comment'
 import { ArrowLeftIcon } from '@heroicons/react/solid'
 import Post from '../comps/posts'
 import Widgets from '../comps/widgets'
-
+import Modal from '/comps/modal'
 
 function PostPage({ providers, trendingResults, followingResults }) {
   const { data: session } = useSession()

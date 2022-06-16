@@ -17,7 +17,7 @@ function feed() {
   }, [db]);
 
   return (
-      <div className='text-white flex-grow w-[#400px] xl:ml-[370px] border-l border-r sm:ml-[72px] max-w-2xl border-gray-700'>
+      <div className='text-white flex-grow w-[#400px] xl:ml-[370px] border-l border-r sm:ml-[72px] max-w-xl border-gray-700'>
           <div className='flex items-center sm:justify-between sticky top-0 z-50 py-2 px-3 bg-black border-b border-gray-700'>
             <h2 className='text-lg sm:text-xl font-bold'>Home</h2>
             <div className=' w-9 h-9 hoverAnimation ml-auto justify-center items-center xl:px-0 flex'> 
