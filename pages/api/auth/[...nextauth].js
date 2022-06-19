@@ -20,7 +20,7 @@ export default NextAuth({
        },
    },
    //    this would add a secret to my enviornment variables
-secret: process.env.JWT_SECRET
+   secret: process.env.JWT_SECRET
 })
 // next step after adding googleProvider;
 // after developing an api for this, we now add a useSession in our app so that it is accessible every where.
