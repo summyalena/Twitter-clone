@@ -1,0 +1,26 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Cognito;
+
+function Cognito(options) {
+  return {
+    id: "cognito",
+    name: "Cognito",
+    type: "oauth",
+    wellKnown: `${options.issuer}/.well-known/openid-configuration`,
+
+    profile(profile) {
+      return {
+        id: profile.sub,
+        name: profile.name,
+        email: profile.email,
+        image: profile.picture
+      };
+    },
+
+    options
+  };
+}
