@@ -1,4 +1,4 @@
-# Portfolio-Website
+# Twitter-Clone
 This is a rebuild of the famous Twitter App
 
 
@@ -34,4 +34,3 @@ Contributions, issues, and feature requests are welcome!
 
 Give a ⭐️ if you like this project!
 
-## Acknowledgments
