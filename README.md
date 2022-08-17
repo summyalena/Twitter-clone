@@ -6,9 +6,9 @@ This is a rebuild of the famous Twitter App
 
 - Major languages: HTML, TailwindCss, Javascript(Nextjs)
 
-##live link
+## live link
 
-- https://twitter-clone-navy-ten.vercel.app/
+- twitter-clone-alena.vercel.app/
 
 ## Getting Started
 To get a local copy and running follow these simple example steps.
