@@ -29,7 +29,7 @@ const Home = ({providers}) => {
          <Feed/> 
          <Widgets />
 
-        {isOpen && <Modal setIsOpen={setIsOpen}/> }
+        {isOpen && <Modal isOpen={isOpen} setIsOpen={setIsOpen}/> }
        </main>
       </div>
        )

@@ -16,7 +16,7 @@ import { onSnapshot, doc, addDoc, collection, serverTimestamp } from 'firebase/f
 import Moment from 'react-moment'
 import {useRouter} from 'next/router'
 
-function modal({setIsOpen}) {
+function modal({setIsOpen, isOpen}) {
     const router = useRouter()
   const [postId, setPostId] = useRecoilState(postIdState)
   //   i am creating a state that holds this post data when i get a snapshot from the database
