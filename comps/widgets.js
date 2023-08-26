@@ -1,9 +1,11 @@
 import { SearchIcon } from '@heroicons/react/solid'
 import React from 'react'
 import Trending from '../comps/Trending'
-import Following from '../comps/Following'
+import Following from '../comps/Following';
+import trendingResults from './utils/trendingResults';
+import { followingResults } from './utils/trendingResults';
 
-function widgets({ trendingResults, followingResults }) {
+function widgets() {
   return (
     <div className="hidden lg:inline ml-8 xl:w-[450px] py-1 space-y-5">
       <div className="sticky top-0 py-1.5 bg-black z-50 w-11/12 xl:w-9/12">
@@ -25,8 +27,8 @@ function widgets({ trendingResults, followingResults }) {
       </div>
       <div className="w-11/12 space-y-3 rounded-xl bg-[#15181c] pt-2 text-[#d9d9d9] xl:w-9/12">
         <h4 className="px-4 text-xl font-bold">What's happening?</h4>
-        {trendingResults.map((result, index) => (
-          <Trending result={result} key={index} />
+        {trendingResults.map((result) => (
+          <Trending result={result} />
         ))}
         <button className="trendBtn">Show More</button>
       </div>
@@ -34,8 +36,8 @@ function widgets({ trendingResults, followingResults }) {
 
       <div className="w-11/12 space-y-3 rounded-xl bg-[#15181c] pt-2 text-[#d9d9d9] xl:w-9/12">
         <h4 className="px-4 text-xl font-bold">Who to follow?</h4>
-        {followingResults.map((result, index) => (
-          <Following result={result} key={index} />
+        {followingResults.map((result)=> (
+          <Following result={result} />
         ))}
         <button className="trendBtn">Show More</button>
       </div>

@@ -9,7 +9,7 @@ import { modalState } from '../atoms/modalAtom'
 import Widgets from '../comps/widgets'
 import {useState} from 'react'
 
-const Home = ({providers, trendingResults, followingResults}) => {
+const Home = ({providers}) => {
 // to however retrieve the session in the frontend
   const {data:session} = useSession();
   const [isOpen,setIsOpen] = useRecoilState(modalState)
@@ -27,9 +27,9 @@ const Home = ({providers, trendingResults, followingResults}) => {
        <main className="bg-black max-w-[1500px] min-h-screen flex mx-auto">
          <SideBar/>
          <Feed/> 
-         <Widgets trendingResults={trendingResults} followingResults={followingResults} />
+         <Widgets />
 
-        {isOpen && <Modal/> }
+        {isOpen && <Modal setIsOpen={setIsOpen}/> }
        </main>
       </div>
        )
@@ -39,16 +39,12 @@ export default Home
 
 
 export async function getServerSideProps(context){
-       const trendingResults = await fetch("https://jsonkeeper.com/b/HU9O").then((res)=> res.json())
-      const followingResults = await fetch("https://jsonkeeper.com/b/WWMJ").then((res)=>res.json())
       const session = await getSession(context);
       const providers = await getProviders();
       return {
         props:{
             providers,
             session,
-            followingResults,
-            trendingResults
         }
       }
 }

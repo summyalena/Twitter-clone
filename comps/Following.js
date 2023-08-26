@@ -3,8 +3,8 @@ import Image from 'next/image'
 
 function Following({result}) {
   return (
-    <div className='transition duration-200 ease-out justify-between items-center cursor-pointer hover:bg-white hover:bg-opacity-[0.03] px-3 py-4 flex'>
-     <Image src={result.userImg} className="rounded-full" width={70} height={70} alt="" objectFit="cover"/>
+    <div key={result.id} className='transition duration-200 ease-out justify-between items-center cursor-pointer hover:bg-white hover:bg-opacity-[0.03] px-3 py-4 flex'>
+     <Image src={result.userImage} className="rounded-full" width={70} height={70} alt="" objectFit="cover"/>
       <div className='ml-3 leading-5 group'>
         <h4 className='group inline-block font-bold group-hover:underline'>{result.username}</h4>
         <h5 className='text-gray-500 text-[15px]'>{result.tag}</h5>
