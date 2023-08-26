@@ -23,7 +23,7 @@ import Moment from 'react-moment'
 function posts({ post, id, postPage }) {
   const [comments, setComments] = useState([])
   // I'm adding my session to my frontend
-  const { data: session } = useSession()
+  const { data:session } = useSession()
   // this recoilState is set such that when the modal opens, it shows that state that was saved in the recoil state
   const [isOpen, setIsOpen] = useRecoilState(modalState)
   const [postId, setPostId] = useRecoilState(postIdState)
